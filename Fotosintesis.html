@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Química Interactiva</title>
+    <link rel="icon" href="Imagenes/favicon.png"><!--Icono de la planta-->
+    <!--estilos-->
+
+    <style>
+        h2{
+            text-align: center;
+        }
+        h4{
+            text-align: left;
+        }
+        nav{
+            text-align: left;
+            text-decoration-color: #046920;
+        
+        }
+        h1{
+            text-align: left;
+        }
+        ul{
+            text-align: justify;
+        }
+        body { 
+            font-family: Arial, sans-serif; text-align: center;
+            background-color: rgb(117, 43, 43);
+         }
+        .control { margin: 10px; }
+        .resultado { margin-top: 20px; }
+        img { width: 200px; height: auto; }
+        p{
+
+            text-align: justify;
+        }
+        option{
+            background-color: #046920;
+        }
+    </style>
+
+</head>
+    <h4>Índice de capítulos - Procesos</h4>
+    <!--Barra de navegacion para encontrar los procesos-->
+
+    <nav>
+        <ol>
+            <li> <a href="#Fotosíntesis">Fotosíntesis</a></li>
+            <li> <a href="#Respiración Celular">Respiración Celular</a></li>
+            <li> <a href="#Nutrición Vegetal">Nutrición Vegetal</a></li>
+        </ol>
+    </nav>
+
+<body>
+
+    <section id="Fotosíntesis">
+        <h1>Fotosíntesis</h1>
+
+        <p style="text-align: justify;"><b>¿Qué es la Fotosíntesis</b>La fotosíntesis es el proceso por el cual las plantas, las algas y algunas bacterias convierten la luz solar en energía química, almacenándola en moléculas orgánicas como la glucosa. Durante este proceso, se libera oxígeno al medio ambiente, lo que es esencial para la vida en el planeta.
+
+        </p>
+        <h3 style="text-align: left;">Ecuación general de la fotosíntesis</h3>
+        <p>La ecuación química que resume la fotosíntesis es:</p>
+        <p><b> 6CO 2+6H 2 O+energía solar→C 6 H 12 O 6 +6O 2</b></p>
+
+            <ul>
+                <li><b>CO₂ </b>(Dióxido de carbono): Se obtiene del aire a través de los estomas de las hojas.</li>
+                <li><b>H₂O</b> (Agua): Es absorbida por las raíces y transportada a las hojas por los vasos conductores (xilema).</li>
+                <li><b>Luz solar:</b> Es captada por la clorofila y utilizada para transformar los reactivos en productos.</li>
+                <li><b>C₆H₁₂O₆</b> (Glucosa): Es un azúcar que la planta utiliza como fuente de energía o almacena en forma de almidón.</li>
+                </li>
+            </ul>
+
+        
+        </section>
+        <h2>Simulador de Fotosíntesis</h2>
+        <div>
+            <label>Luz:</label>
+            <select id="luz">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </div><br>
+        <div>
+            <label>Dióxido de Carbono:</label>
+            <select id="co2">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </div><br>
+        <div>
+            <label>Agua:</label>
+            <select id="agua">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </div><br>
+        <div>
+            <label>Clorofila:</label>
+            <select id="clorofila">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </div><br>
+        <div>
+            <label>Sales Minerales:</label>
+            <select id="sales">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </div>
+        <br>
+        <button onclick="simularFotosintesis()">Simular</button>
+
+        <div class="resultado">
+            <h2>Estado de la Planta</h2>
+            <img id="imagenResultado" src="Imagenes/planta_buena.jpg" alt="Resultado de la planta">
+        </div>
+    </section>
+
+    <script>
+        function obtenerEstadoPlanta(luz, co2, agua, clorofila, sales) {
+            const combinacion = [luz, co2, agua, clorofila, sales];
+            const buena = combinacion.filter(x => x === "Buena").length;
+            const regular = combinacion.filter(x => x === "Regular").length;
+            const nula = combinacion.filter(x => x === "Nula").length;
+
+            if (nula >= 3) {
+                return "planta_muerta.jpg";
+            } else if (nula === 2) {
+                return "planta_muy_debil.jpg";
+            } else if (nula === 1 && regular >= 2) {
+                return "planta_debil.jpg";
+            } else if (buena >= 4) {
+                return "planta_buena.jpg";
+            } else {
+                return "planta_en_crecimiento.jpg";
+            }
+        }
+
+        function simularFotosintesis() {
+            let luz = document.getElementById("luz").value;
+            let co2 = document.getElementById("co2").value;
+            let agua = document.getElementById("agua").value;
+            let clorofila = document.getElementById("clorofila").value;
+            let sales = document.getElementById("sales").value;
+
+            let imagen = obtenerEstadoPlanta(luz, co2, agua, clorofila, sales);
+            document.getElementById("imagenResultado").src = "Imagenes/" + imagen;
+        }
+    </script>
+
+<section id="Respiración Celular">
+    <h1>Respiración Celular</h1>
+
+    <p style="text-align: justify;"><b>¿Qué es la Respiración Celular?</b> La respiración celular es el proceso mediante el cual las células convierten la glucosa y el oxígeno en energía, dióxido de carbono y agua. Este proceso es esencial para la producción de ATP (adenosín trifosfato), que es la principal fuente de energía para las actividades celulares.
+
+    </p>
+    <h3 style="text-align: left;">Ecuación general de la respiración celular</h3>
+    <p>La ecuación química que resume la respiración celular es:</p>
+    <p><b> C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energía (ATP)</b></p>
+
+    <ul>
+        <li><b>C₆H₁₂O₆</b> (Glucosa): Es el combustible que las células utilizan para obtener energía.</li>
+        <li><b>O₂</b> (Oxígeno): Es el gas que se utiliza en el proceso de respiración celular.</li>
+        <li><b>CO₂</b> (Dióxido de carbono): Es un subproducto que se libera al medio ambiente.</li>
+        <li><b>H₂O</b> (Agua): También es un subproducto de la respiración celular.</li>
+    </ul>
+
+</section>
+
+<h2>Simulador de Respiración Celular</h2>
+<div>
+    <label>Glucosa:</label>
+    <select id="glucosa">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div><br>
+<div>
+    <label>Oxígeno:</label>
+    <select id="oxigeno">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div><br>
+<div>
+    <label>Temperatura:</label>
+    <select id="temperatura">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div><br>
+<div>
+    <label>pH:</label>
+    <select id="ph">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div><br>
+<div>
+    <label>Sales Minerales:</label>
+    <select id="salesRespiracion">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div>
+<br>
+<button onclick="simularRespiracion()">Simular</button>
+
+<div class="resultado">
+    <h2>Estado de la Célula</h2>
+    <img id="imagenResultadoRespiracion" src="Imagenes Respiracion Celular/celula_buena.jpg" alt="Resultado de la célula">
+</div>
+
+<script>
+    function obtenerEstadoCelula(glucosa, oxigeno, temperatura, ph, sales) {
+        const combinacion = [glucosa, oxigeno, temperatura, ph, sales];
+        const buena = combinacion.filter(x => x === "Buena").length;
+        const regular = combinacion.filter(x => x === "Regular").length;
+        const nula = combinacion.filter(x => x === "Nula").length;
+
+        if (nula >= 3) {
+            return "celula_muerta.jpg";
+        } else if (nula === 2) {
+            return "celula_muy_debil.jpg";
+        } else if (nula === 1 && regular >= 2) {
+            return "celula_debil.jpg";
+        } else if (buena >= 4) {
+            return "celula_buena.jpg";
+        } else {
+            return "celula_en_crecimiento.jpg";
+        }
+    }
+
+    function simularRespiracion() {
+        let glucosa = document.getElementById("glucosa").value;
+        let oxigeno = document.getElementById("oxigeno").value;
+        let temperatura = document.getElementById("temperatura").value;
+        let ph = document.getElementById("ph").value;
+        let sales = document.getElementById("salesRespiracion").value;
+
+        let imagen = obtenerEstadoCelula(glucosa, oxigeno, temperatura, ph, sales);
+        document.getElementById("imagenResultadoRespiracion").src = "Imagenes Respiracion Celular/" + imagen;
+    }
+</script>
+
+<section id="Nutrición Vegetal">
+    <h1>Nutrición Vegetal</h1>
+
+    <p style="text-align: justify;"><b>¿Qué es la Nutrición Vegetal?</b> La nutrición vegetal es el proceso mediante el cual las plantas absorben y utilizan nutrientes del suelo para crecer y desarrollarse. Estos nutrientes son esenciales para la fotosíntesis, el crecimiento celular y la producción de energía.
+
+    </p>
+    <h3 style="text-align: left;">Factores que afectan la nutrición vegetal</h3>
+    <ul>
+        <li><b>Nutrientes:</b> Elementos esenciales como nitrógeno, fósforo y potasio que las plantas necesitan para crecer.</li>
+        <li><b>Agua:</b> Es fundamental para la fotosíntesis y el transporte de nutrientes.</li>
+        <li><b>Luz:</b> La luz solar es necesaria para la fotosíntesis, que a su vez produce energía para la planta.</li>
+        <li><b>Condiciones del suelo:</b> La calidad del suelo afecta la disponibilidad de nutrientes y la capacidad de retención de agua.</li>
+    </ul>
+
+</section>
+
+<h2>Simulador de Nutrición Vegetal</h2>
+<div>
+    <label>Nutrientes:</label>
+    <select id="nutrientes">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div><br>
+<div>
+    <label>Agua:</label>
+    <select id="aguaNutricion">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div><br>
+<div>
+    <label>Luz:</label>
+    <select id="luzNutricion">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div><br>
+<div>
+    <label>Condiciones del Suelo:</label>
+    <select id="suelo">
+        <option value="Buena">Buena</option>
+        <option value="Regular">Regular</option>
+        <option value="Nula">Nula</option>
+    </select>
+</div>
+<br>
+<button onclick="simularNutricion()">Simular</button>
+
+<div class="resultado">
+    <h2>Estado de la Planta</h2>
+    <img id="imagenResultadoNutricion" src="Imagenes/planta_buena.jpg" alt="Resultado de la planta">
+</div>
+
+<script>
+    function obtenerEstadoPlantaNutricion(nutrientes, agua, luz, suelo) {
+        const combinacion = [nutrientes, agua, luz, suelo];
+        const buena = combinacion.filter(x => x === "Buena").length;
+        const regular = combinacion.filter(x => x === "Regular").length;
+        const nula = combinacion.filter(x => x === "Nula").length;
+
+        if (nula >= 3) {
+            return "planta_muerta.jpg";
+        } else if (nula === 2) {
+            return "planta_muy_debil.jpg";
+        } else if (nula === 1 && regular >= 2) {
+            return "planta_debil.jpg";
+        } else if (buena >= 4) {
+            return "planta_buena.jpg";
+        } else {
+            return "planta_en_crecimiento.jpg";
+        }
+    }
+
+    function simularNutricion() {
+        let nutrientes = document.getElementById("nutrientes").value;
+        let agua = document.getElementById("aguaNutricion").value;
+        let luz = document.getElementById("luzNutricion").value;
+        let suelo = document.getElementById("suelo").value;
+
+        let imagen = obtenerEstadoPlantaNutricion(nutrientes, agua, luz, suelo);
+        document.getElementById("imagenResultadoNutricion").src = "Imagenes/" + imagen;
+    }
+</script>
+</html>
