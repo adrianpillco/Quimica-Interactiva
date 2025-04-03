@@ -258,55 +258,59 @@
     }
 </script>
 
-<section id="Nutrición Vegetal">
+<section id="Nutricion Vegetal">
     <h1>Nutrición Vegetal</h1>
 
-    <p style="text-align: justify;"><b>¿Qué es la Nutrición Vegetal?</b> La nutrición vegetal es el proceso mediante el cual las plantas absorben y utilizan nutrientes del suelo para crecer y desarrollarse. Estos nutrientes son esenciales para la fotosíntesis, el crecimiento celular y la producción de energía.
-
-    </p>
+    <p style="text-align: justify;"><b>¿Qué es la Nutrición Vegetal?</b> La nutrición vegetal es el proceso mediante el cual las plantas absorben y utilizan nutrientes del suelo para crecer y desarrollarse. Estos nutrientes son esenciales para la fotosíntesis, el crecimiento celular y la producción de energía.</p>
+    
     <h3 style="text-align: left;">Factores que afectan la nutrición vegetal</h3>
     <ul>
         <li><b>Nutrientes:</b> Elementos esenciales como nitrógeno, fósforo y potasio que las plantas necesitan para crecer.</li>
         <li><b>Agua:</b> Es fundamental para la fotosíntesis y el transporte de nutrientes.</li>
         <li><b>Luz:</b> La luz solar es necesaria para la fotosíntesis, que a su vez produce energía para la planta.</li>
-        <li><b>Condiciones del suelo:</b> La calidad del suelo afecta la disponibilidad de nutrientes y la capacidad de retención de agua.</li>
+        <li><b>Condiciones del Suelo:</b> La calidad del suelo afecta la disponibilidad de nutrientes y la capacidad de retención de agua.</li>
     </ul>
-
 </section>
 
 <h2>Simulador de Nutrición Vegetal</h2>
-<div>
-    <label>Nutrientes:</label>
-    <select id="nutrientes">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div><br>
-<div>
-    <label>Agua:</label>
-    <select id="aguaNutricion">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div><br>
-<div>
-    <label>Luz:</label>
-    <select id="luzNutricion">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div><br>
-<div>
-    <label>Condiciones del Suelo:</label>
-    <select id="suelo">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div>
+<table style="width: 100%; border-collapse: collapse;">
+    <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">
+            <label>Nutrientes:</label>
+            <select id="nutrientes">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </td>
+        <td style="padding: 10px; border: 1px solid #ccc;">
+            <label>Agua:</label>
+            <select id="aguaNutricion">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px; border: 1px solid #ccc;">
+            <label>Luz:</label>
+            <select id="luzNutricion">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </td>
+        <td style="padding: 10px; border: 1px solid #ccc;">
+            <label>Condiciones del Suelo:</label>
+            <select id="suelo">
+                <option value="Buena">Buena</option>
+                <option value="Regular">Regular</option>
+                <option value="Nula">Nula</option>
+            </select>
+        </td>
+    </tr>
+</table>
 <br>
 <button onclick="simularNutricion()">Simular</button>
 
