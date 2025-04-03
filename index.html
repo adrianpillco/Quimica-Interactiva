@@ -28,7 +28,7 @@
         }
         body { 
             font-family: Arial, sans-serif; text-align: center;
-            background-color: rgb(117, 43, 43);
+            background-color: rgb(206, 235, 160);
          }
         .control { margin: 10px; }
         .resultado { margin-top: 20px; }
@@ -76,87 +76,95 @@
 
         
         </section>
+        
         <h2>Simulador de Fotosíntesis</h2>
-        <div>
-            <label>Luz:</label>
-            <select id="luz">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
-        </div><br>
-        <div>
-            <label>Dióxido de Carbono:</label>
-            <select id="co2">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
-        </div><br>
-        <div>
-            <label>Agua:</label>
-            <select id="agua">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
-        </div><br>
-        <div>
-            <label>Clorofila:</label>
-            <select id="clorofila">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
-        </div><br>
-        <div>
-            <label>Sales Minerales:</label>
-            <select id="sales">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
-        </div>
-        <br>
-        <button onclick="simularFotosintesis()">Simular</button>
-
-        <div class="resultado">
-            <h2>Estado de la Planta</h2>
-            <img id="imagenResultado" src="Imagenes/planta_buena.jpg" alt="Resultado de la planta">
-        </div>
-    </section>
-
-    <script>
-        function obtenerEstadoPlanta(luz, co2, agua, clorofila, sales) {
-            const combinacion = [luz, co2, agua, clorofila, sales];
-            const buena = combinacion.filter(x => x === "Buena").length;
-            const regular = combinacion.filter(x => x === "Regular").length;
-            const nula = combinacion.filter(x => x === "Nula").length;
-
-            if (nula >= 3) {
-                return "planta_muerta.jpg";
-            } else if (nula === 2) {
-                return "planta_muy_debil.jpg";
-            } else if (nula === 1 && regular >= 2) {
-                return "planta_debil.jpg";
-            } else if (buena >= 4) {
-                return "planta_buena.jpg";
-            } else {
-                return "planta_en_crecimiento.jpg";
+        <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+                <td style="padding: 10px; border: 2px solid #0c0c0c; vertical-align: top; width: 25%;">
+                    <div style="text-align: center;">
+                        <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                            <label>Luz:</label>
+                            <select id="luz">
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Nula">Nula</option>
+                            </select>
+                        </div>
+                        <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                            <label>Dióxido de Carbono:</label>
+                            <select id="co2">
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Nula">Nula</option>
+                            </select>
+                        </div>
+                        <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                            <label>Agua:</label>
+                            <select id="agua">
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Nula">Nula</option>
+                            </select>
+                        </div>
+                        <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                            <label>Clorofila:</label>
+                            <select id="clorofila">
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Nula">Nula</option>
+                            </select>
+                        </div>
+                        <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                            <label>Sales Minerales:</label>
+                            <select id="sales">
+                                <option value="Buena">Buena</option>
+                                <option value="Regular">Regular</option>
+                                <option value="Nula">Nula</option>
+                            </select>
+                        </div>
+                        <button onclick="simularFotosintesis()">Simular</button>
+                    </div>
+                </td>
+                <td style="padding: 10px; border: 2px solid #0c0c0c; vertical-align: top; width: 50%;">
+                    <div style="text-align: center;">
+                        <h2>Estado de la Planta</h2>
+                        <img id="imagenResultado" src="Imagenes/planta_buena.jpg" alt="Resultado de la planta" style="max-width: 100%; height: auto;">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        
+        <script>
+            function obtenerEstadoPlanta(luz, co2, agua, clorofila, sales) {
+                const combinacion = [luz, co2, agua, clorofila, sales];
+                const buena = combinacion.filter(x => x === "Buena").length;
+                const regular = combinacion.filter(x => x === "Regular").length;
+                const nula = combinacion.filter(x => x === "Nula").length;
+        
+                if (nula >= 3) {
+                    return "planta_muerta.jpg";
+                } else if (nula === 2) {
+                    return "planta_muy_debil.jpg";
+                } else if (nula === 1 && regular >= 2) {
+                    return "planta_debil.jpg";
+                } else if (buena >= 4) {
+                    return "planta_buena.jpg";
+                } else {
+                    return "planta_en_crecimiento.jpg";
+                }
             }
-        }
-
-        function simularFotosintesis() {
-            let luz = document.getElementById("luz").value;
-            let co2 = document.getElementById("co2").value;
-            let agua = document.getElementById("agua").value;
-            let clorofila = document.getElementById("clorofila").value;
-            let sales = document.getElementById("sales").value;
-
-            let imagen = obtenerEstadoPlanta(luz, co2, agua, clorofila, sales);
-            document.getElementById("imagenResultado").src = "Imagenes/" + imagen;
-        }
-    </script>
+        
+            function simularFotosintesis() {
+                let luz = document.getElementById("luz").value;
+                let co2 = document.getElementById("co2").value;
+                let agua = document.getElementById("agua").value;
+                let clorofila = document.getElementById("clorofila").value;
+                let sales = document.getElementById("sales").value;
+        
+                let imagen = obtenerEstadoPlanta(luz, co2, agua, clorofila, sales);
+                document.getElementById("imagenResultado").src = "Imagenes/" + imagen;
+            }
+        </script>
 
 <section id="Respiración Celular">
     <h1>Respiración Celular</h1>
@@ -178,53 +186,61 @@
 </section>
 
 <h2>Simulador de Respiración Celular</h2>
-<div>
-    <label>Glucosa:</label>
-    <select id="glucosa">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div><br>
-<div>
-    <label>Oxígeno:</label>
-    <select id="oxigeno">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div><br>
-<div>
-    <label>Temperatura:</label>
-    <select id="temperatura">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div><br>
-<div>
-    <label>pH:</label>
-    <select id="ph">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div><br>
-<div>
-    <label>Sales Minerales:</label>
-    <select id="salesRespiracion">
-        <option value="Buena">Buena</option>
-        <option value="Regular">Regular</option>
-        <option value="Nula">Nula</option>
-    </select>
-</div>
-<br>
-<button onclick="simularRespiracion()">Simular</button>
-
-<div class="resultado">
-    <h2>Estado de la Célula</h2>
-    <img id="imagenResultadoRespiracion" src="Imagenes Respiracion Celular/celula_buena.jpg" alt="Resultado de la célula">
-</div>
+<table style="width: 100%; border-collapse: collapse;">
+    <tr>
+        <td style="padding: 10px; border: 2px solid #0c0c0c; vertical-align: top; width: 25%;">
+            <div style="text-align: center;">
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Glucosa:</label>
+                    <select id="glucosa">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Oxígeno:</label>
+                    <select id="oxigeno">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Temperatura:</label>
+                    <select id="temperatura">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>pH:</label>
+                    <select id="ph">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Sales Minerales:</label>
+                    <select id="salesRespiracion">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <button onclick="simularRespiracion()">Simular</button>
+            </div>
+        </td>
+        <td style="padding: 10px; border: 2px solid #0c0c0c; vertical-align: top; width: 50%;">
+            <div style="text-align: center;">
+                <h2>Estado de la Célula</h2>
+                <img id="imagenResultadoRespiracion" src="Imagenes Respiracion Celular/celula_buena.jpg" alt="Resultado de la célula" style="max-width: 100%; height: auto;">
+            </div>
+        </td>
+    </tr>
+</table>
 
 <script>
     function obtenerEstadoCelula(glucosa, oxigeno, temperatura, ph, sales) {
@@ -258,7 +274,7 @@
     }
 </script>
 
-<section id="Nutricion Vegetal">
+<section id="NutricionVegetal">
     <h1>Nutrición Vegetal</h1>
 
     <p style="text-align: justify;"><b>¿Qué es la Nutrición Vegetal?</b> La nutrición vegetal es el proceso mediante el cual las plantas absorben y utilizan nutrientes del suelo para crecer y desarrollarse. Estos nutrientes son esenciales para la fotosíntesis, el crecimiento celular y la producción de energía.</p>
@@ -275,49 +291,51 @@
 <h2>Simulador de Nutrición Vegetal</h2>
 <table style="width: 100%; border-collapse: collapse;">
     <tr>
-        <td style="padding: 10px; border: 1px solid #ccc;">
-            <label>Nutrientes:</label>
-            <select id="nutrientes">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
+        <td style="padding: 10px; border: 2px solid #0c0c0c; vertical-align: top; width: 25%;">
+            <div style="text-align: center;">
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Nutrientes:</label>
+                    <select id="nutrientes">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Agua:</label>
+                    <select id="aguaNutricion">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Luz:</label>
+                    <select id="luzNutricion">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <div style="border: 2px solid #0c0c0c; padding: 10px; margin-bottom: 10px; text-align: left;">
+                    <label>Condiciones del Suelo:</label>
+                    <select id="suelo">
+                        <option value="Buena">Buena</option>
+                        <option value="Regular">Regular</option>
+                        <option value="Nula">Nula</option>
+                    </select>
+                </div>
+                <button onclick="simularNutricion()">Simular</button>
+            </div>
         </td>
-        <td style="padding: 10px; border: 1px solid #ccc;">
-            <label>Agua:</label>
-            <select id="aguaNutricion">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
-        </td>
-    </tr>
-    <tr>
-        <td style="padding: 10px; border: 1px solid #ccc;">
-            <label>Luz:</label>
-            <select id="luzNutricion">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
-        </td>
-        <td style="padding: 10px; border: 1px solid #ccc;">
-            <label>Condiciones del Suelo:</label>
-            <select id="suelo">
-                <option value="Buena">Buena</option>
-                <option value="Regular">Regular</option>
-                <option value="Nula">Nula</option>
-            </select>
+        <td style="padding: 10px; border: 2px solid #0c0c0c; vertical-align: top; width: 50%;">
+            <div style="text-align: center;">
+                <h2>Estado de la Planta</h2>
+                <img id="imagenResultadoNutricion" src="Imagenes/planta_buena.jpg" alt="Resultado de la planta" style="max-width: 100%; height: auto;">
+            </div>
         </td>
     </tr>
 </table>
-<br>
-<button onclick="simularNutricion()">Simular</button>
-
-<div class="resultado">
-    <h2>Estado de la Planta</h2>
-    <img id="imagenResultadoNutricion" src="Imagenes/planta_buena.jpg" alt="Resultado de la planta">
-</div>
 
 <script>
     function obtenerEstadoPlantaNutricion(nutrientes, agua, luz, suelo) {
