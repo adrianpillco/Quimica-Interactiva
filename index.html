@@ -7,55 +7,101 @@
     <title>Química Interactiva</title>
     <link rel="icon" href="Imagenes/favicon.png"><!--Icono de la planta-->
     <!--estilos-->
-
     <style>
-        h2{
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center;
+            background-color: rgb(206, 235, 160);
+        }
+        header {
+            background-color: #4CAF50; /* Color de fondo */
+            color: white; /* Color del texto */
+            padding: 10px 20px; /* Espaciado interno */
+            display: flex; /* Usar flexbox para alinear elementos */
+            justify-content: space-between; /* Espacio entre elementos */
+            align-items: center; /* Centrar verticalmente */
+        }
+        nav {
+            display: flex; /* Usar flexbox para alinear enlaces */
+            gap: 15px; /* Espacio entre enlaces */
+        }
+        nav a {
+            color: white; /* Color del texto de los enlaces */
+            text-decoration: none; /* Sin subrayado */
+            padding: 5px 10px; /* Espaciado interno */
+            border-radius: 5px; /* Bordes redondeados */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+        nav a:hover {
+            background-color: #45a049; /* Color de fondo al pasar el ratón */
+        }
+        .socials {
+            display: flex; /* Usar flexbox para alinear iconos de redes sociales */
+            gap: 10px; /* Espacio entre iconos */
+        }
+        .socials img {
+            width: 24px; /* Ancho de los iconos */
+            height: 24px; /* Alto de los iconos */
+        }
+        h2 {
             text-align: center;
         }
-        h4{
+        h4 {
             text-align: left;
         }
-        nav{
-            text-align: left;
-            text-decoration-color: #046920;
-        
-        }
-        h1{
+        h1 {
             text-align: left;
         }
-        ul{
+        ul {
             text-align: justify;
         }
-        body { 
-            font-family: Arial, sans-serif; text-align: center;
-            background-color: rgb(206, 235, 160);
-         }
         .control { margin: 10px; }
         .resultado { margin-top: 20px; }
         img { width: 200px; height: auto; }
-        p{
-
+        p {
             text-align: justify;
         }
-        option{
+        option {
             background-color: #046920;
         }
-        footer{
+        footer {
             text-align: left;
         }
     </style>
-
 </head>
-    <h4>Índice de capítulos - Procesos</h4>
-    <!--Barra de navegacion para encontrar los procesos-->
 
+<body>
+
+<header>
+    <div class="logo">
+        <h1>Química Interactiva</h1> <!-- Nombre de la página -->
+    </div>
     <nav>
-        <ol>
-            <li> <a href="#Fotosíntesis">Fotosíntesis</a></li>
-            <li> <a href="#Respiración Celular">Respiración Celular</a></li>
-            <li> <a href="#Nutrición Vegetal">Nutrición Vegetal</a></li>
-        </ol>
+        <a href="#conocenos">Conoce más sobre nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#blog">Blog</a>
     </nav>
+    <div class="socials">
+        <a href="https://www.youtube.com/@Qu%C3%ADmicaInteractiva-f2q" target="_blank">
+            <img src="YouTube_23392.ico" alt="YouTube">
+        </a>
+        <a href="https://www.instagram.com/quimica_interactiva__?igsh=Znp1NXZmdGg4bXd2&utm_source=qr" target="_blank">
+            <img src="iconfinder-social-media-applications-3instagram-4102579_113804.ico" alt="Instagram">
+        </a>
+    </div>
+</header>
+
+<h4>Índice de capítulos - Procesos</h4>
+<!--Barra de navegacion para encontrar los procesos-->
+<nav>
+    <ol>
+        <li><a href="#Fotosíntesis">Fotosíntesis</a></li>
+        <li><a href="#Respiración Celular">Respiración Celular</a></li>
+        <li><a href="#Nutrición Vegetal">Nutrición Vegetal</a></li>
+    </ol>
+</nav>
+
 
 <body>
 
