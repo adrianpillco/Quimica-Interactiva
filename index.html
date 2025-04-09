@@ -7,7 +7,7 @@
     <title>Química Interactiva</title>
     <link rel="icon" href="Imagenes/favicon.png"><!--Icono de la planta-->
     <!--estilos-->
-     <style>
+    <style>
         body { 
             font-family: Arial, sans-serif; 
             text-align: center;
@@ -21,12 +21,20 @@
             justify-content: space-between; /* Espacio entre elementos */
             align-items: center; /* Centrar verticalmente */
         }
+        .right-section {
+            display: flex; /* Use flexbox to align elements horizontally */
+            flex-direction: row; /* Align elements in a row */
+            align-items: center; /* Center vertically within the right-section */
+            gap: 20px; /* Space between nav, socials, and logo */
+        }
         nav {
             display: flex; /* Usar flexbox para alinear enlaces */
-            gap: 15px; /* Espacio entre enlaces */
+            flex-direction: row; /* Align links horizontally */
+            align-items: center; /* Center links vertically */
+            gap: 15px; /* Space between links */
         }
         nav a {
-            color: white; /* Color del texto de los enlaces */
+            color: rgb(14, 1, 1); /* Color del texto de los enlaces */
             text-decoration: none; /* Sin subrayado */
             padding: 5px 10px; /* Espaciado interno */
             border-radius: 5px; /* Bordes redondeados */
@@ -37,11 +45,16 @@
         }
         .socials {
             display: flex; /* Usar flexbox para alinear iconos de redes sociales */
+            align-items: center; /* Center icons vertically */
             gap: 10px; /* Espacio entre iconos */
         }
         .socials img {
             width: 24px; /* Ancho de los iconos */
             height: 24px; /* Alto de los iconos */
+        }
+        #logo {
+            width: 150px; /* Increased logo size */
+            height: auto; /* Maintain aspect ratio */
         }
         h2 {
             text-align: center;
@@ -92,10 +105,8 @@
             <img src="facebook_logo_icon_147291.ico" alt="Facebook">
         </a>
     </div>
-    <img src="logo_quimica-removebg-preview.png" alt="Descripción del Logo" id="logo">
-
     </div>
-
+    <img src="logo_quimica-removebg-preview.png" alt="Descripción del Logo" id="logo">
 </header>
 
 <h4>Índice de capítulos - Procesos</h4>
