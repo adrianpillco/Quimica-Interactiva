@@ -11,27 +11,32 @@
         body { 
             font-family: Arial, sans-serif; 
             text-align: center;
-            background-color: rgb(206, 235, 160);
+            background-color: #e4e3d0;
         }
         header {
-            background-color: #4CAF50; /* Color de fondo */
-            color: white; /* Color del texto */
+            background-color: #c9beb1; /* Color de fondo */
+            color: black; /* Color del texto */
             padding: 10px 20px; /* Espaciado interno */
             display: flex; /* Usar flexbox para alinear elementos */
             justify-content: space-between; /* Espacio entre elementos */
             align-items: center; /* Centrar verticalmente */
         }
+        .logo-title {
+            display: flex;
+            flex: 1;
+            justify-content: center; /* Centrar el título */
+        }
         .right-section {
-            display: flex; /* Use flexbox to align elements horizontally */
-            flex-direction: row; /* Align elements in a row */
-            align-items: center; /* Center vertically within the right-section */
-            gap: 20px; /* Space between nav, socials, and logo */
+            display: flex; /* Usar flexbox para alinear elementos horizontalmente */
+            flex-direction: row; /* Alinear elementos en una fila */
+            align-items: center; /* Centrar verticalmente dentro de right-section */
+            gap: 20px; /* Espacio entre nav y redes sociales */
         }
         nav {
             display: flex; /* Usar flexbox para alinear enlaces */
-            flex-direction: row; /* Align links horizontally */
-            align-items: center; /* Center links vertically */
-            gap: 15px; /* Space between links */
+            flex-direction: row; /* Alinear enlaces horizontalmente */
+            align-items: center; /* Centrar enlaces verticalmente */
+            gap: 15px; /* Espacio entre enlaces */
         }
         nav a {
             color: rgb(14, 1, 1); /* Color del texto de los enlaces */
@@ -45,7 +50,7 @@
         }
         .socials {
             display: flex; /* Usar flexbox para alinear iconos de redes sociales */
-            align-items: center; /* Center icons vertically */
+            align-items: center; /* Centrar iconos verticalmente */
             gap: 10px; /* Espacio entre iconos */
         }
         .socials img {
@@ -53,8 +58,8 @@
             height: 24px; /* Alto de los iconos */
         }
         #logo {
-            width: 150px; /* Increased logo size */
-            height: auto; /* Maintain aspect ratio */
+            width: 150px; /* Tamaño del logo */
+            height: auto; /* Mantener proporción */
         }
         h2 {
             text-align: center;
@@ -68,9 +73,6 @@
         ul {
             text-align: justify;
         }
-        .control { margin: 10px; }
-        .resultado { margin-top: 20px; }
-        img { width: 200px; height: auto; }
         p {
             text-align: justify;
         }
@@ -80,93 +82,178 @@
         footer {
             text-align: left;
         }
+        /* Estilos para el modal */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: left;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .modal-content h3 {
+            margin-top: 0;
+        }
+        .modal-content p {
+            margin: 10px 0;
+        }
+        .modal-content form {
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-content textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .modal-content input[type="text"],
+        .modal-content input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .modal-content button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal-content button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
 <body>
 
 <header>
-    <div class="logo">
+    <img src="logo_quimica-removebg-preview.png" alt="Descripción del Logo" id="logo">
+    <div class="logo-title">
         <h1>Química Interactiva</h1> <!-- Nombre de la página -->
     </div>
-    <nav>
-
-        <a href="https://carolinapuma4.wixsite.com/quimicainteractiva" target="_blank">Conoce más sobre nosotros</a>
-        <a href="https://carolinapuma4.wixsite.com/quimicainteractiva" target="_blank">Contacto</a>
-        <a href="https://carolinapuma4.wixsite.com/quimicainteractiva" target="_blank">Blog</a>
-    <div class="socials">
-        <a href="https://www.youtube.com/@Qu%C3%ADmicaInteractiva-f2q" target="_blank">
-            <img src="YouTube_23392.ico" alt="YouTube">
-        </a>
-        <a href="https://www.instagram.com/quimica_interactiva__?igsh=Znp1NXZmdGg4bXd2&utm_source=qr" target="_blank">
-            <img src="iconfinder-social-media-applications-3instagram-4102579_113804.ico" alt="Instagram">
-        </a>
-        <a href="https://www.facebook.com/interactivechemistry" target="_blank">
-            <img src="facebook_logo_icon_147291.ico" alt="Facebook">
-        </a>
+    <div class="right-section">
+        <nav>
+            <a href="https://carolinapuma4.wixsite.com/quimicainteractiva" target="_blank">Conoce más sobre nosotros</a>
+            <a href="#" onclick="openModal()">Contacto</a>
+            <a href="https://carolinapuma4.wixsite.com/quimicainteractiva" target="_blank">Blog</a>
+        </nav>
+        <div class="socials">
+            <a href="https://www.youtube.com/@Qu%C3%ADmicaInteractiva-f2q" target="_blank">
+                <img src="YouTube_23392.ico" alt="YouTube">
+            </a>
+            <a href="https://www.instagram.com/quimica_interactiva__?igsh=Znp1NXZmdGg4bXd2&utm_source=qr" target="_blank">
+                <img src="iconfinder-social-media-applications-3instagram-4102579_113804.ico" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/interactivechemistry" target="_blank">
+                <img src="facebook_logo_icon_147291.ico" alt="Facebook">
+            </a>
+        </div>
     </div>
-    </div>
-    <img src="logo_quimica-removebg-preview.png" alt="Descripción del Logo" id="logo">
 </header>
 
-<h4>Índice de capítulos - Procesos</h4>
+<!-- Modal para mostrar información de contacto y formulario -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <h3>Información de Contacto</h3>
+        <p><strong>Email:</strong> Adrian.meb14.02@gmail.com</p>
+        <p><strong>Contacto:</strong> 0993266629</p>
+        <h3>Envía un Mensaje</h3>
+        <form action="https://formsubmit.co/Adrian.meb14.02@gmail.com" method="POST">
+            <input type="text" name="name" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+            <textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
+<h4> Simuladores de los Procesos</h4>
 <!--Barra de navegacion para encontrar los procesos-->
 <nav>
     <ol>
-        <li><a href="#Fotosíntesis">Fotosíntesis</a></li>
-        <li><a href="#Respiración Celular">Respiración Celular</a></li>
-        <li><a href="#Nutrición Vegetal">Nutrición Vegetal</a></li>
+        <li><a href="https://error155.itch.io/fotosintesis">Fotosíntesis</a></li>
+        <li><a href="https://error155.itch.io/respiracion-celular">Respiración Celular</a></li>
     </ol>
 </nav>
 
+<section id="Fotosíntesis">
+    <h1>Fotosíntesis</h1>
+    <p style="text-align: justify;"><b>¿Qué es la Fotosíntesis</b>La fotosíntesis es el proceso por el cual las plantas, las algas y algunas bacterias convierten la luz solar en energía química, almacenándola en moléculas orgánicas como la glucosa. Durante este proceso, se libera oxígeno al medio ambiente, lo que es esencial para la vida en el planeta.</p>
+    <h3 style="text-align: left;">Ecuación general de la fotosíntesis</h3>
+    <p>La ecuación química que resume la fotosíntesis es:</p>
+    <p><b> 6CO 2+6H 2 O+energía solar→C 6 H 12 O 6 +6O 2</b></p>
+    <ul>
+        <li><b>CO₂ </b>(Dióxido de carbono): Se obtiene del aire a través de los estomas de las hojas.</li>
+        <li><b>H₂O</b> (Agua): Es absorbida por las raíces y transportada a las hojas por los vasos conductores (xilema).</li>
+        <li><b>Luz solar:</b> Es captada por la clorofila y utilizada para transformar los reactivos en productos.</li>
+        <li><b>C₆H₁₂O₆</b> (Glucosa): Es un azúcar que la planta utiliza como fuente de energía o almacena en forma de almidón.</li>
+    </ul>
+</section>
 
-<body>
-
-    <section id="Fotosíntesis">
-        <h1>Fotosíntesis</h1>
-
-        <p style="text-align: justify;"><b>¿Qué es la Fotosíntesis</b>La fotosíntesis es el proceso por el cual las plantas, las algas y algunas bacterias convierten la luz solar en energía química, almacenándola en moléculas orgánicas como la glucosa. Durante este proceso, se libera oxígeno al medio ambiente, lo que es esencial para la vida en el planeta.
-
-        </p>
-        <h3 style="text-align: left;">Ecuación general de la fotosíntesis</h3>
-        <p>La ecuación química que resume la fotosíntesis es:</p>
-        <p><b> 6CO 2+6H 2 O+energía solar→C 6 H 12 O 6 +6O 2</b></p>
-
-            <ul>
-                <li><b>CO₂ </b>(Dióxido de carbono): Se obtiene del aire a través de los estomas de las hojas.</li>
-                <li><b>H₂O</b> (Agua): Es absorbida por las raíces y transportada a las hojas por los vasos conductores (xilema).</li>
-                <li><b>Luz solar:</b> Es captada por la clorofila y utilizada para transformar los reactivos en productos.</li>
-                <li><b>C₆H₁₂O₆</b> (Glucosa): Es un azúcar que la planta utiliza como fuente de energía o almacena en forma de almidón.</li>
-                </li>
-            </ul>
-
-        
-        </section>
-    
-
-    <section id="Respiración Celular">
-        <h1>Respiración Celular</h1>
-    
-        <p style="text-align: justify;"><b>¿Qué es la Respiración Celular?</b> La respiración celular es el proceso mediante el cual las células convierten la glucosa y el oxígeno en energía, dióxido de carbono y agua. Este proceso es esencial para la producción de ATP (adenosín trifosfato), que es la principal fuente de energía para las actividades celulares.
-    
-        </p>
-        <h3 style="text-align: left;">Ecuación general de la respiración celular</h3>
-        <p>La ecuación química que resume la respiración celular es:</p>
-        <p><b> C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energía (ATP)</b></p>
-    
-        <ul>
-            <li><b>C₆H₁₂O₆</b> (Glucosa): Es el combustible que las células utilizan para obtener energía.</li>
-            <li><b>O₂</b> (Oxígeno): Es el gas que se utiliza en el proceso de respiración celular.</li>
-            <li><b>CO₂</b> (Dióxido de carbono): Es un subproducto que se libera al medio ambiente.</li>
-            <li><b>H₂O</b> (Agua): También es un subproducto de la respiración celular.</li>
-        </ul>
-    
-    </section>
+<section id="Respiración Celular">
+    <h1>Respiración Celular</h1>
+    <p style="text-align: justify;"><b>¿Qué es la Respiración Celular?</b> La respiración celular es el proceso mediante el cual las células convierten la glucosa y el oxígeno en energía, dióxido de carbono y agua. Este proceso es esencial para la producción de ATP (adenosín trifosfato), que es la principal fuente de energía para las actividades celulares.</p>
+    <h3 style="text-align: left;">Ecuación general de la respiración celular</h3>
+    <p>La ecuación química que resume la respiración celular es:</p>
+    <p><b> C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energía (ATP)</b></p>
+    <ul>
+        <li><b>C₆H₁₂O₆</b> (Glucosa): Es el combustible que las células utilizan para obtener energía.</li>
+        <li><b>O₂</b> (Oxígeno): Es el gas que se utiliza en el proceso de respiración celular.</li>
+        <li><b>CO₂</b> (Dióxido de carbono): Es un subproducto que se libera al medio ambiente.</li>
+        <li><b>H₂O</b> (Agua): También es un subproducto de la respiración celular.</li>
+    </ul>
+</section>
 
 <footer>
     <br><br><br><br><br><br><br><br><br>
-  
-    <P><center>@Copyryght 2025-Derechos Reservados </center></P>
-
+    <p><center>@Copyryght 2025-Derechos Reservados </center></p>
 </footer>
+
+<script>
+    // Funciones para abrir y cerrar el modal
+    function openModal() {
+        document.getElementById("contactModal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("contactModal").style.display = "none";
+    }
+
+    // Cerrar el modal al hacer clic fuera de él
+    window.onclick = function(event) {
+        const modal = document.getElementById("contactModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+</body>
 </html>
