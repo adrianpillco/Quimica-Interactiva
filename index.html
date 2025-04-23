@@ -153,7 +153,7 @@
 <body>
 
 <header>
-    <img src="logo_quimica-removebg-preview.png" alt="Descripción del Logo" id="logo">
+    <img src="Imagenes/logo_quimica-removebg-preview.png" alt="Descripción del Logo" id="logo">
     <div class="logo-title">
         <h1>Química Interactiva</h1> <!-- Nombre de la página -->
     </div>
@@ -165,13 +165,13 @@
         </nav>
         <div class="socials">
             <a href="https://www.youtube.com/@Qu%C3%ADmicaInteractiva-f2q" target="_blank">
-                <img src="YouTube_23392.ico" alt="YouTube">
+                <img src="Imagenes/YouTube_23392.ico" alt="YouTube">
             </a>
             <a href="https://www.instagram.com/quimica_interactiva__?igsh=Znp1NXZmdGg4bXd2&utm_source=qr" target="_blank">
-                <img src="iconfinder-social-media-applications-3instagram-4102579_113804.ico" alt="Instagram">
+                <img src="Imagenes/iconfinder-social-media-applications-3instagram-4102579_113804.ico" alt="Instagram">
             </a>
             <a href="https://www.facebook.com/interactivechemistry" target="_blank">
-                <img src="facebook_logo_icon_147291.ico" alt="Facebook">
+                <img src="Imagenes/facebook_logo_icon_147291.ico" alt="Facebook">
             </a>
         </div>
     </div>
@@ -189,6 +189,10 @@
             <input type="text" name="name" placeholder="Tu Nombre" required>
             <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
             <textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
+            <!-- Campo oculto para redirigir después de enviar el formulario -->
+            <input type="hidden" name="_next" value="https://tu-usuario.github.io/quimica-interactiva/">
+            <!-- Campo oculto para cerrar el modal después de enviar -->
+            <input type="hidden" name="_after" value="closeModal()">
             <button type="submit">Enviar</button>
         </form>
     </div>
